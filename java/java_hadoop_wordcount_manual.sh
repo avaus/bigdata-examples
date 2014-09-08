@@ -3,9 +3,9 @@
 
 # Get three java files
 # Originally from http://codesfusion.blogspot.fi/2013/10/hadoop-wordcount-with-new-map-reduce-api.html
-wget https://dl.dropboxusercontent.com/u/792906/data/hadoop_stuff/WordMapper.java
-wget https://dl.dropboxusercontent.com/u/792906/data/hadoop_stuff/WordCount.java
-wget https://dl.dropboxusercontent.com/u/792906/data/hadoop_stuff/SumReducer.java
+wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/java/WordMapper.java
+wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/java/WordCount.java
+wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/java/SumReducer.java
 
 # Create folder for the .class files
 mkdir wordcount_classes

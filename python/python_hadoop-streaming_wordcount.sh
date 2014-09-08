@@ -2,10 +2,10 @@
 
 # Get python mapper and reducer
 # Originally from http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/
-wget https://dl.dropboxusercontent.com/u/792906/data/hadoop_stuff/mapper.py
-wget https://dl.dropboxusercontent.com/u/792906/data/hadoop_stuff/reducer.py
+wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/python/mapper.py
+wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/python/reducer.py
 
-# Clear output folder
+# Clear output folder (if exists)
 hadoop fs -rm -r ./gutenberg_python_output
 
 # Run MapReduce job using Hadoop streaming
