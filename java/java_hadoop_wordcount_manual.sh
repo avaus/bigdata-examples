@@ -1,7 +1,7 @@
-# Hadoop java word count example using manually compiled java code
-# Note! Run get_data.sh first
+# Java Hadoop word count example using manually compiled java code
+# Run this script on the data-master as the 'hadoop' user
 
-# Get three java files
+# Get java mapper and reducer files from github
 # Originally from http://codesfusion.blogspot.fi/2013/10/hadoop-wordcount-with-new-map-reduce-api.html
 wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/java/WordMapper.java
 wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/java/WordCount.java

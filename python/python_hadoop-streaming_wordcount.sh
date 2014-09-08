@@ -1,6 +1,7 @@
-# Run in projects/tutorials/python/
+# Python Hadoop streaming word count example
+# Run this script on the data-master as the 'hadoop' user
 
-# Get python mapper and reducer
+# Get python mapper and reducer scripts from github
 # Originally from http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/
 wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/python/mapper.py
 wget https://raw.githubusercontent.com/avaus/bigdata-examples/master/python/reducer.py

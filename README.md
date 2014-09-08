@@ -1,11 +1,11 @@
 bigdata-examples
 ================
 
-Avaus big data examples
+### Avaus big data examples
 
-These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE ADDED
+### These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE ADDED
 
-## Get data
+## Get data used in the examples
 
 * Get text document data form Project Gutenberg using the [script](gutenberg_data/get_gutenberg_data.sh)
 
@@ -17,3 +17,7 @@ These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE
 ## Python examples
 
 * Word count using hadoop streaming and python scripts: [script](python/python_hadoop-streaming_wordcount.sh)
+
+## Contribute examples?
+
+You are welcome to contribute more examples! Simply make pull request!

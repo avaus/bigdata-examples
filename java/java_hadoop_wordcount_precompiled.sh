@@ -1,5 +1,5 @@
-# Hadoop java word count example using the precompiled jar file
-# Note! Run get_data.sh first
+# Java Hadoop word count example using the precompiled jar file
+# Run this script on the data-master as the 'hadoop' user
 
 # Clear output directory if exists
 hadoop fs -rm -r ./gutenberg_java_output
