@@ -1,9 +1,7 @@
-bigdata-examples
+Avaus big data examples
 ================
 
-### Avaus big data examples
-
-### These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE ADDED
+These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE ADDED
 
 ## Get data used in the examples
 
@@ -21,3 +19,7 @@ bigdata-examples
 ## Contribute examples?
 
 You are welcome to contribute more examples! Simply make pull request!
+
+## License
+
+See the [license note](LICENSE)

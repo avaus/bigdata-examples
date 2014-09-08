@@ -5,7 +5,8 @@
 hadoop fs -rm -r ./gutenberg_java_output
 
 # Run built-in in word count jar
-hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.4.0.jar wordcount ./gutenberg_data ./gutenberg_java_output
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.4.0.jar \
+wordcount ./gutenberg_data ./gutenberg_java_output
 
 # Get output back from HDFS (remove earlier output if exists)
 rm -r gutenberg_java_output/

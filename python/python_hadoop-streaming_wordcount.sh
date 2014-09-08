@@ -11,7 +11,7 @@ hadoop fs -rm -r ./gutenberg_python_output
 
 # Run MapReduce job using Hadoop streaming
 # Note! Using -files instead of -file (deprecated)
-hadoop jar /usr/local/hadoop-1/share/hadoop/tools/lib/hadoop-streaming-2.4.0.jar  \
+hadoop jar /usr/local/hadoop-1/share/hadoop/tools/lib/hadoop-streaming-2.4.0.jar \
 -files ./mapper.py,./reducer.py -mapper ./mapper.py -reducer ./reducer.py \
 -input ./gutenberg_data/* -output ./gutenberg_python_output
 
