@@ -21,7 +21,7 @@ Access RStudio from the browser: `http://192.168.60.2:8787`
 
 ## Use Shiny Server
 
-Instructions coming
+Instructions coming...
 
 ## More examples
 

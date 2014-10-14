@@ -34,10 +34,6 @@ sudo apt-get install -y nodejs
 # Install bower: https://github.com/0xdata/h2o/tree/master/client
 sudo npm install -g bower
 
-# Try without these
-# cd h2o/client
-# make setup build
-
 # Install Scala SBT: http://www.scala-sbt.org/release/tutorial/Setup.html
 wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
 sudo dpkg -i sbt-0.13.6.deb
@@ -74,7 +70,12 @@ Finally install H2O
 git clone https://github.com/0xdata/h2o.git
 
 cd h2o
-sudo make
+make
+
+# If the above does not work, run these first
+# cd h2o/client
+# make setup build
+# cd ..
 
 # Copy and unzip h2o stuff to homefolder
 unzip target/h2o-*.zip ../
