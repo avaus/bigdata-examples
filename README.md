@@ -1,7 +1,7 @@
 Avaus big data examples
 ================
 
-These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE ADDED
+These examples allow you to test the [Avaus big data cluster](https://github.com/avaus/bigdata-cluster).
 
 ## Get data used in the examples
 
@@ -17,6 +17,15 @@ These examples allow you to test the Avaus big data cluster - LINK TO REPO TO BE
 ### Python
 
 * Word count using hadoop streaming and python scripts: [script](python/python_hadoop-streaming_wordcount.sh)
+
+## H2O
+
+* [Install and run H2O](/h2o/README.md)
+
+## R, RStudio and Shiny
+
+* Using R, RStudio and Shiny
+* Running H2O from R
 
 ## Contribute examples?
 
