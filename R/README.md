@@ -25,4 +25,4 @@ Instructions coming
 
 ## More examples
 
-* [Running H2O from R](/R_H2O.md)
+* [Running H2O from R](https://github.com/avaus/bigdata-examples/blob/master/R/R_H2O.md)

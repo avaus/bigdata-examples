@@ -5,7 +5,10 @@ These examples allow you to test the [Avaus big data cluster](https://github.com
 
 ## Get data used in the examples
 
-* Get text document data form Project Gutenberg using the [script](gutenberg_data/get_gutenberg_data.sh)
+Get example data using the [script](data/get_example_data.sh). This includes
+
+* text document data form Project Gutenberg
+* iris data
 
 ## Hadoop examples
 

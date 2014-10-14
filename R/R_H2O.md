@@ -2,7 +2,7 @@
 
 ## Install H2O R package
 
-Note! This requires you have installed H2O as instructed [here](/../h2o/)!
+Note! This requires you have installed H2O as instructed [here](https://github.com/avaus/bigdata-examples/tree/master/h2o)!
 
 Run on homefolder:
 

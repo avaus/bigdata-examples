@@ -121,4 +121,4 @@ hadoop jar h2odriver_cdh4.jar water.hadoop.h2odriver -libjars ../h2o.jar -mapper
 
 ## Run H2O with R
 
-See [here](/../R/R_H2O.md)
+See [here](https://github.com/avaus/bigdata-examples/blob/master/R/R_H2O.md)
