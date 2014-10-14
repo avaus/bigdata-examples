@@ -20,12 +20,12 @@ These examples allow you to test the [Avaus big data cluster](https://github.com
 
 ## H2O
 
-* [Install and run H2O](/h2o/README.md)
+* [Install and run H2O](/h2o/)
 
 ## R, RStudio and Shiny
 
-* Using R, RStudio and Shiny
-* Running H2O from R
+* [Use R, RStudio and Shiny](/R/)
+* [Running H2O from R](/R/R_H2O.md)
 
 ## Contribute examples?
 

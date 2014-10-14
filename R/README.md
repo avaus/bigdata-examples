@@ -1,6 +1,28 @@
-# Run RStudio
+# Using R, RStudio and Shiny on Avaus bigdata cluster
 
-RStudio can be accessed from here: http://192.168.60.2:8787/auth-sign-in
-Need to create a user
+## Run R
+
+Simply type `R` on the command line.
+
+## Use RStudio Server
+
+Currently you need a unix username to log into RStudio. You can create this by connecting to the data-master.
+
+```bash
+#!/bin/bash
+
+# Create user 'ruser' with homefolder
 sudo useradd -m ruser
+# Set password for 'ruser'
 sudo passwd ruser
+```
+
+Access RStudio from the browser: `http://192.168.60.2:8787`
+
+## Use Shiny Server
+
+Instructions coming
+
+## More examples
+
+* [Running H2O from R](/R_H2O.md)

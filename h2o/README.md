@@ -1,4 +1,4 @@
-# Install and run H2O on avaus bigdata cluster
+# Install and run H2O on Avaus bigdata cluster
 
 ## Installation
 
@@ -77,9 +77,10 @@ cd h2o
 sudo make
 
 # Copy and unzip h2o stuff to homefolder
-cp target/h2o-*.zip .
-cd ..
-unzip h2o-*.zip
+unzip target/h2o-*.zip ../
+# cp target/h2o-*.zip .
+# cd ..
+# unzip h2o-*.zip
 ```
 
 
@@ -99,6 +100,25 @@ java -Xmx2g -jar h2o.jar
 
 To open the H2O UI in browser, go to address `http://192.168.60.2:54321/`. The address is of the form: `data-master-ip:port`, where data-master-ip is defined in the Vagrantfile and the port is something like 54321. 
 
-## Run H2O with Hadoop
+## Run H2O on Hadoop
 
-See example in R
+Need to first switch to hadoop user (with homefolder) by `sudo su - hadoop`.
+
+```bash
+#!/bin/bash
+
+# Unzip necessary stuff from h2o
+unzip /home/vagrant/h2o/target/h2o-*.zip .
+
+# cp /home/vagrant/h2o/target/h2o-*.zip .
+# unzip h2o-*.zip
+cd h2o-*
+cd hadoop
+
+# Run example command
+hadoop jar h2odriver_cdh4.jar water.hadoop.h2odriver -libjars ../h2o.jar -mapperXmx 1g -nodes 2 -output h20_test_output
+```
+
+## Run H2O with R
+
+See [here](/../R/R_H2O.md)
