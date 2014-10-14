@@ -11,19 +11,24 @@ hadoop fs -mkdir /user/hadoop
 # hadoop fs -rm -r *
 
 # Create folder for the data
-mkdir gutenberg_data
+mkdir example_data
 
+# Get Gutenber text data
 # Originally downloaded from Project Gutenberg, http://www.gutenberg.org/
 # http://www.gutenberg.org/ebooks/20417
 # http://www.gutenberg.org/ebooks/5000
 # http://www.gutenberg.org/ebooks/4300
 # As gutenberg.org does not allow access from hosted servers, we'll download the data from github
-wget -P gutenberg_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/gutenberg_data/pg20417.txt
-wget -P gutenberg_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/gutenberg_data/pg5000.txt
-wget -P gutenberg_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/gutenberg_data/pg4300.txt
+wget -P example_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/data/pg20417.txt
+wget -P example_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/data/pg5000.txt
+wget -P example_data/ https://raw.githubusercontent.com/avaus/bigdata-examples/master/data/pg4300.txt
+
+# Get iris data
+wget -P example_data/ https://dataminingproject.googlecode.com/svn/DataMiningApp/datasets/Iris/iris.csv
 
 # Copy data to HDFS
-hadoop fs -put gutenberg_data
+hadoop fs -put example_data
 
 # Check that it is there and that the content is correct
-hadoop fs -ls gutenberg_data
+hadoop fs -ls example_data
+
