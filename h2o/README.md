@@ -6,7 +6,7 @@ Note! This should be packaged into a Chef cookbook...
 
 These instructions follow roughly the official [Running H2O on Hadoop guide](http://docs.0xdata.com/deployment/hadoop_tutorial.html).
 
-Preparations: set locale, install git and curl.
+Preparations: set locale, install git, curl, [Scala SBT](http://www.scala-sbt.org/release/tutorial/Setup.html) and Python Sphinx.
 
 ```bash
 #!/bin/bash
@@ -14,15 +14,26 @@ Preparations: set locale, install git and curl.
 # Set correct locale (based on http://www.google.com/url?q=http%3A%2F%2Faskubuntu.com%2Fquestions%2F162391%2Fhow-do-i-fix-my-locale-issue&sa=D&sntz=1&usg=AFQjCNHqArOU_XUHwtSKPwR5tKv4NdEr4w)
 # sudo sh -c "echo -e 'LANG=en_US.UTF-8\nLC_ALL=en_US.UTF-8' > /etc/default/locale"
 sudo sh -c "echo 'LANG=en_US.UTF-8\nLC_ALL=en_US.UTF-8' > /etc/default/locale"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Install git
 sudo apt-get -y install git-core
 
 # Install curl
 sudo apt-get -y install curl
+
+# Install Scala SBT: http://www.scala-sbt.org/release/tutorial/Setup.html
+wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
+sudo dpkg -i sbt-0.13.6.deb
+
+# Install python sphinx
+sudo apt-get install -y python-sphinx
 ```
 
-Install more requirements: [node](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager), [bower](https://github.com/0xdata/h2o/tree/master/client) and [Scala SBT](http://www.scala-sbt.org/release/tutorial/Setup.html).
+Install more requirements: [node](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager), [bower](https://github.com/0xdata/h2o/tree/master/client).
+
+### NOTE! There is some problem now, as bower does not allow installing with sudo, but everything else kind of needs it. Need to fix this! Possible solution: do not install bower separately!
 
 ```bash
 #!/bin/bash
@@ -31,12 +42,13 @@ Install more requirements: [node](https://github.com/joyent/node/wiki/Installing
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs
 
+# TRY WITHOUT INSTALL bower here separately
 # Install bower: https://github.com/0xdata/h2o/tree/master/client
-sudo npm install -g bower
+# sudo npm install -g bower
+# Or
+# sudo chown -R vagrant /usr/local
 
-# Install Scala SBT: http://www.scala-sbt.org/release/tutorial/Setup.html
-wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
-sudo dpkg -i sbt-0.13.6.deb
+# npm install -g bower
 ```
 
 Install R packages: rjson, RCurl (requires bitops), statsmod
@@ -69,6 +81,7 @@ Finally install H2O
 # Clone h2o from github
 git clone https://github.com/0xdata/h2o.git
 
+# Install
 cd h2o
 make
 
@@ -76,12 +89,11 @@ make
 # cd h2o/client
 # make setup build
 # cd ..
+# Strange combination of h2o/make, h2o/client/make setup build
+# first sudo h2o/make (fails), then h2o/client/make setup build, then h2o/make
 
-# Copy and unzip h2o stuff to homefolder
-unzip target/h2o-*.zip ../
-# cp target/h2o-*.zip .
-# cd ..
-# unzip h2o-*.zip
+# Finally you need to unzip h2o stuff to be able run it
+unzip target/h2o-*.zip -d ../
 ```
 
 
@@ -93,10 +105,10 @@ Start H2O server
 #!/bin/bash
 
 # Go through the folder unzipped above
-cd h2o-*/
+# cd h2o-*/
 
 # Start H2O
-java -Xmx2g -jar h2o.jar
+java -Xmx2g -jar h2o-*/h2o.jar
 ```
 
 To open the H2O UI in browser, go to address `http://192.168.60.2:54321/`. The address is of the form: `data-master-ip:port`, where data-master-ip is defined in the Vagrantfile and the port is something like 54321. 
@@ -109,12 +121,10 @@ Need to first switch to hadoop user (with homefolder) by `sudo su - hadoop`.
 #!/bin/bash
 
 # Unzip necessary stuff from h2o
-unzip /home/vagrant/h2o/target/h2o-*.zip .
+unzip /home/vagrant/h2o/target/h2o-*.zip
 
-# cp /home/vagrant/h2o/target/h2o-*.zip .
-# unzip h2o-*.zip
-cd h2o-*
-cd hadoop
+cd h2o-*/hadoop
+# cd hadoop
 
 # Run example command
 hadoop jar h2odriver_cdh4.jar water.hadoop.h2odriver -libjars ../h2o.jar -mapperXmx 1g -nodes 2 -output h20_test_output

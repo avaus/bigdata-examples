@@ -13,11 +13,8 @@ Run on homefolder:
 
 # Unzip h2o stuff
 unzip h2o/target/h2o-*.zip .
-#cp h2o/target/h2o-*.zip 
-#cd ..
-#unzip h2o-*.zip
-# Install R package
 
+# Install R package
 sudo R CMD INSTALL h2o-*/R/h2o_*.tar.gz
 ```
 
@@ -42,17 +39,17 @@ H2Oserver <- h2o.init(ip = "192.168.60.2", port = 54321, startH2O = FALSE)
 
 ### Loading data
 
-# From the web
+From the web
 ```r
 iris.hex <- h2o.importFile(H2Oserver, path="https://dataminingproject.googlecode.com/svn/DataMiningApp/datasets/Iris/iris.csv", parse=TRUE, header=TRUE, sep="\t")
 ```
 
-# From local file
+From local file
 ```r
 iris.hex <- h2o.importFile(H2Oserver, path="/home/hadoop/example_data/iris.csv", parse=TRUE, header=TRUE, sep="\t")
 ```
 
-# From HDFS
+From HDFS
 ```r
 iris.hex <- h2o.importFile(H2Oserver, path="hdfs://data-master:54310/user/ubuntu/VR_customers.txt", parse=TRUE, header=TRUE, sep="\t")
 ```
