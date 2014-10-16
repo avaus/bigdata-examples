@@ -31,9 +31,9 @@ sudo dpkg -i sbt-0.13.6.deb
 sudo apt-get install -y python-sphinx
 ```
 
-Install more requirements: [node](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager), [bower](https://github.com/0xdata/h2o/tree/master/client).
+Install more requirements for the UI: [node](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) and [bower](https://github.com/0xdata/h2o/tree/master/client).
 
-### NOTE! There is some problem now, as bower does not allow installing with sudo, but everything else kind of needs it. Need to fix this! Possible solution: do not install bower separately!
+NOTE! There might still be a problem installing H2O UI after installing bower with sudo as below...
 
 ```bash
 #!/bin/bash
@@ -42,12 +42,15 @@ Install more requirements: [node](https://github.com/joyent/node/wiki/Installing
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs
 
+# Seems that this needs to be done after all
+sudo npm install -g bower
+
+# REMOVE THESE IF THE ABOVE WORKS
 # TRY WITHOUT INSTALL bower here separately
 # Install bower: https://github.com/0xdata/h2o/tree/master/client
 # sudo npm install -g bower
 # Or
 # sudo chown -R vagrant /usr/local
-
 # npm install -g bower
 ```
 
@@ -81,16 +84,13 @@ Finally install H2O
 # Clone h2o from github
 git clone https://github.com/0xdata/h2o.git
 
-# Install
-cd h2o
-make
+# Install UI first!
+cd h2o/client
+make setup build
 
-# If the above does not work, run these first
-# cd h2o/client
-# make setup build
-# cd ..
-# Strange combination of h2o/make, h2o/client/make setup build
-# first sudo h2o/make (fails), then h2o/client/make setup build, then h2o/make
+# Install
+cd ..
+make
 
 # Finally you need to unzip h2o stuff to be able run it
 unzip target/h2o-*.zip -d ../
@@ -111,7 +111,7 @@ Start H2O server
 java -Xmx2g -jar h2o-*/h2o.jar
 ```
 
-To open the H2O UI in browser, go to address `http://192.168.60.2:54321/`. The address is of the form: `data-master-ip:port`, where data-master-ip is defined in the Vagrantfile and the port is something like 54321. 
+To open the H2O UI in browser, go to address [http://192.168.60.2:54321/](http://192.168.60.2:54321/). The address is of the form: `data-master-ip:port`, where data-master-ip is defined in the Vagrantfile and the port is something like 54321 (see what's printed in the console!).
 
 ## Run H2O on Hadoop
 

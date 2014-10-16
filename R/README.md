@@ -6,7 +6,7 @@ Simply type `R` on the command line.
 
 ## Use RStudio Server
 
-Currently you need a unix username to log into RStudio. You can create this by connecting to the data-master.
+Currently you need a unix username with a password to log into RStudio. You can create this in the data-master as follows.
 
 ```bash
 #!/bin/bash
@@ -17,7 +17,7 @@ sudo useradd -m ruser
 sudo passwd ruser
 ```
 
-Access RStudio from the browser: `http://192.168.60.2:8787`
+Access RStudio from the browser at [http://192.168.60.2:8787](http://192.168.60.2:8787).
 
 ## Use Shiny Server
 

@@ -6,13 +6,13 @@ For general instructions for using R and RStudio, see [here](https://github.com/
 
 Note! This requires you have installed H2O as instructed [here](https://github.com/avaus/bigdata-examples/tree/master/h2o)!
 
-Run on homefolder:
+Run on data-master homefolder:
 
 ```bash
 #!/bin/bash
 
 # Unzip h2o stuff
-unzip h2o/target/h2o-*.zip .
+unzip h2o/target/h2o-*.zip -d .
 
 # Install R package
 sudo R CMD INSTALL h2o-*/R/h2o_*.tar.gz
