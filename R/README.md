@@ -2,7 +2,7 @@
 
 ## Run R
 
-Simply type `R` on the command line.
+Simply type `R` on the command line. However, we recommend using RStudio as instructed below.
 
 ## Use RStudio Server
 

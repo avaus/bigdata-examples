@@ -29,6 +29,7 @@ Get example data using the [script](data/get_example_data.sh). This includes
 
 * [Use R, RStudio and Shiny](/R/)
 * [Running H2O from R](/R/R_H2O.md)
+* [Trafi open car registry data analysis](/R/trafi_h2o.R). Note that this replicates an earlier analysis done with R+H2O without a server. The earlier analysis has a [more extensive documentation](https://github.com/avaus/opendata/blob/master/trafi.md), which is good to read through.
 
 ## Contribute examples?
 

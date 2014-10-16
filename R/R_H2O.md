@@ -67,7 +67,13 @@ x <- h2o::apply(iris.hex[,1:4], 2, sum)
 rf.res <- h2o.randomForest(x=1:4, y=5, data=iris.hex, key="rf.res", classification=TRUE, importance=TRUE, type="BigData", verbose=TRUE)
 ```
 
+Data can be pulled to R with `as.data.frame()`:
+
+```r
+as.data.frame(x)
+```
+
 ### More examples
 
-* [Trafi open car registry data analysis](trafi_h2o.R)
+* [Trafi open car registry data analysis](trafi_h2o.R). Note that this replicates an earlier analysis done with R+H2O without a server. The earlier analysis has a [more extensive documentation](https://github.com/avaus/opendata/blob/master/trafi.md), which is good to read through.
 * Airlines?
