@@ -33,8 +33,6 @@ sudo apt-get install -y python-sphinx
 
 Install more requirements for the UI: [node](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) and [bower](https://github.com/0xdata/h2o/tree/master/client).
 
-NOTE! There might still be a problem installing H2O UI after installing bower with sudo as below...
-
 ```bash
 #!/bin/bash
 
@@ -44,14 +42,6 @@ sudo apt-get install -y nodejs
 
 # Seems that this needs to be done after all
 sudo npm install -g bower
-
-# REMOVE THESE IF THE ABOVE WORKS
-# TRY WITHOUT INSTALL bower here separately
-# Install bower: https://github.com/0xdata/h2o/tree/master/client
-# sudo npm install -g bower
-# Or
-# sudo chown -R vagrant /usr/local
-# npm install -g bower
 ```
 
 Install R packages: rjson, RCurl (requires bitops), statsmod
@@ -76,7 +66,7 @@ wget http://cran.r-project.org/src/contrib/statmod_1.4.20.tar.gz
 sudo R CMD INSTALL statmod_1.4.20.tar.gz
 ```
 
-Finally install H2O
+Finally install H2O. Installing the UI requires bower, but the installation with `make setup build` fails due to permission errors. So here it is first run with `sudo make setup build`, which fails at some point with a note that you should not install it with sudo. After that `make setup build` however completes. This works for now but should be fixed somehow!
 
 ```bash
 #!/bin/bash
@@ -86,6 +76,8 @@ git clone https://github.com/0xdata/h2o.git
 
 # Install UI first!
 cd h2o/client
+sudo make setup build
+# This will fail, but after that running make again without sudo works!
 make setup build
 
 # Install
